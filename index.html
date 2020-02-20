@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Google Map</title>
+</head>
+
+<body>
+
+  <div id="map"></div>
+  <div id="directionsPanel">
+    <input type="text" id="start" placeholder="Начало маршрута...">
+    <input type="text" id="end" placeholder="Конец маршрута...">
+    <button id="btn">Построить маршрут</button>
+  </div>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7BPy6e4vnhWePEqTnaxAJ7MlGOx5A2BY&callback=initMap"
+    type="text/javascript"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

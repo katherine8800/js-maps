@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+
+@import "normalize";
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 10px;
+}
+
+​body {
+  min-height: 100%;
+  @include font(1.4rem, $text-color, 500, $text-ff, 1.8);
+}
+
+#map {
+  float:left;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+#directionsPanel {
+  position: absolute;
+  display: flex;
+  margin: 10px;
+  top: 0;
+  left: 40%;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  input {
+    padding: 8px 17px;
+    border:  1px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    &:nth-child(2) {
+      border-top: 1px solid rgb(230, 230, 230);
+    }
+  }  
+}
+
+#btn {
+  margin-top: 10px;
+  padding: 8px 17px;  
+  background-color: #fff;
+  border: 1px solid #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+}
