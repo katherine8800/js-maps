@@ -1,4 +1,11 @@
 function initMap() {
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: { lat: 34.052235, lng: -118.243683 }
+    });
+
+
     var directionsRenderer = new google.maps.DirectionsRenderer({
         draggable: true,
         map: map
@@ -6,10 +13,6 @@ function initMap() {
 
     var directionsService = new google.maps.DirectionsService;
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: { lat: 34.052235, lng: -118.243683 }
-    });
     directionsRenderer.setMap(map);
 
     function calculateAndDisplayRoute(directionsService, directionsRenderer) {
