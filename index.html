@@ -14,15 +14,26 @@
 
   <div id="map"></div>
   <div id="directionsPanel">
-    <input type="text" id="start" placeholder="Начало маршрута...">
-    <input type="text" id="end" placeholder="Конец маршрута...">
+    <input type="text" id="start" placeholder="Начало маршрута..." value="Киев">
+    <input type="text" id="end" placeholder="Конец маршрута..." value="Мариуполь  ">
     <button id="btn">Построить маршрут</button>
+  </div>
+
+  <div id="floating-panel">
+    <!-- <b>Режим путешествия:</b> -->
+    <select id="mode">
+      <option value="DRIVING">🚗</option>
+      <option value="WALKING">🚶‍♂️</option>
+      <option value="BICYCLING">🚴</option>
+      <option value="TRANSIT">🚌</option>
+    </select>
   </div>
 
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7BPy6e4vnhWePEqTnaxAJ7MlGOx5A2BY&callback=initMap"
     type="text/javascript"></script>
-  <script src="js/script.js"></script>
+  <!-- <script src="js/script.js"></script> -->
+  <script src="js/second-script.js"></script>
 </body>
 
 </html>

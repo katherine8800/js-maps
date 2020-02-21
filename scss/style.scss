@@ -50,5 +50,29 @@ html {
   padding: 8px 17px;  
   background-color: #fff;
   border: 1px solid #fff;
+  font-weight: 700;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+}
+
+
+
+#mode {
+  max-width: 90px;
+  outline: none;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  display: flex;
+  margin: 10px;
+  top: 0;
+  left: 26%;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-radius: 2px;
+  border: 1px solid #fff;
+  padding: 7.4px 17px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border-radius: 2px;
 }
