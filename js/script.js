@@ -1,56 +1,43 @@
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: { lat: 47.094845, lng: 37.518076 }
-    });
-
-    var directionsService = new google.maps.DirectionsService;
     var directionsRenderer = new google.maps.DirectionsRenderer({
         draggable: true,
         map: map
-        // panel: document.getElementById('right-panel')
     });
 
-    // directionsRenderer.addListener('directions_changed', function () {
-    //     computeTotalDistance(directionsRenderer.getDirections());
-    // });
+    var directionsService = new google.maps.DirectionsService;
 
-    let btn = document.getElementById('btn')
-    btn.addEventListener('click', function (e) {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: { lat: 34.052235, lng: -118.243683 }
+    });
+    directionsRenderer.setMap(map);
 
-        let startPoint = '';
-        let endPoint = '';
+    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
-        startPoint = document.getElementById('start').value
-        endPoint = document.getElementById('end').value
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click', function (e) {
 
-        displayRoute(startPoint, endPoint, directionsService,
-            directionsRenderer);
-    })
-}
+            let startPoint = document.getElementById('start').value;
+            let endPoint = document.getElementById('end').value;
 
+            var selectedMode = document.getElementById('mode').value;
+            directionsService.route({
+                origin: startPoint,
+                destination: endPoint,
+                travelMode: google.maps.TravelMode[selectedMode]
+            }, function (response, status) {
+                if (status == 'OK') {
+                    directionsRenderer.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        })
+    }
 
-function displayRoute(origin, destination, service, display) {
-    service.route({
-        origin: origin,
-        destination: destination,
-        travelMode: 'DRIVING',
-        avoidTolls: true
-    }, function (response, status) {
-        if (status === 'OK') {
-            display.setDirections(response);
-        } else {
-            alert('Could not display directions due to: ' + status);
-        }
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+
+    document.getElementById('mode').addEventListener('change', function () {
+        calculateAndDisplayRoute(directionsService, directionsRenderer);
     });
 }
-
-// function computeTotalDistance(result) {
-//     var total = 0;
-//     var myroute = result.routes[0];
-//     for (var i = 0; i < myroute.legs.length; i++) {
-//         total += myroute.legs[i].distance.value;
-//     }
-//     total = total / 1000;
-//     document.getElementById('total').innerHTML = total + ' km';
-// }
